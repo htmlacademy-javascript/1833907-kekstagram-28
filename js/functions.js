@@ -1,6 +1,6 @@
 const checkStringLength = (string, maxString) => string.length <= maxString;
 
-checkStringLength('проверяемая строка', 10)
+checkStringLength('проверяемая строка', 10);
 
 
 const isPolindrom = (string) => {
@@ -15,7 +15,7 @@ const isPolindrom = (string) => {
   return true;
 };
 
-isPolindrom('Лёша на полке клопа нашёл ')
+isPolindrom('Лёша на полке клопа нашёл ');
 
 
 const getNumber = (string) => {
@@ -31,7 +31,7 @@ const getNumber = (string) => {
   return parseInt(result, 10);
 };
 
-getNumber('1 кефир, 0.5 батона')
+getNumber('1 кефир, 0.5 батона');
 
 
 const myPadStart = (string, minLength, pad) => {
@@ -39,4 +39,4 @@ const myPadStart = (string, minLength, pad) => {
   return actualPad <= 0 ? string : pad.slice (0, actualPad % pad.length) + pad.repeat (actualPad / pad.length) + string;
 };
 
-myPadStart('qwerty', 4, '0')
+myPadStart('qwerty', 4, '0');
