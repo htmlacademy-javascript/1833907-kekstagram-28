@@ -1,14 +1,14 @@
-const checkStringLength = (string, maxStringLength) => string.length <= maxStringLength;
+const isLessEqual = (string, maxStringLength) => string.length <= maxStringLength;
 
-checkStringLength('проверяемая строка', 10);
+isLessEqual('проверяемая строка', 10);
 
 
 const isPolindrom = (string) => {
-  const stringFormator = string
-    .toLowerCase()
-    .replaceAll(' ', '');
-  for (let i = 0; i < stringFormator.length; i++) {
-    if (stringFormator.at(i) !== stringFormator.at (-i - 1)){
+  const formatedString = string
+    .replaceAll(' ', '')
+    .toLowerCase();
+  for (let i = 0; i < formatedString.length / 2; i++) {
+    if (formatedString.at(i) !== formatedString.at (-i - 1)){
       return false;
     }
   }
@@ -18,10 +18,8 @@ const isPolindrom = (string) => {
 isPolindrom('Лёша на полке клопа нашёл ');
 
 
-const getNumber = (string) => {
-  if (typeof string === 'number') {
-    return string;
-  }
+const getNumber = (param) => {
+  const string = String(param);
   let result = '';
   for (let i = 0; i < string.length; i++) {
     if (!isNaN(parseInt(string.at(i), 10))) {
