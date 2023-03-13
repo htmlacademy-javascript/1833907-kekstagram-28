@@ -1,3 +1,12 @@
+const MIN_SENTENCES = 1;
+const MAX_SENTENCES = 2;
+const MIN_AVATAR = 1;
+const MAX_AVATAR = 6;
+const MIN_LIKES_ID = 15;
+const MAX_LIKES_ID = 200;
+const MIN_COMMENTS_ID = 1;
+const MAX_COMMENTS_ID = 25;
+
 const DESCRIPTION = [
   `Октябрь уж наступил — уж роща отряхает
   Последние листы с нагих своих ветвей;
@@ -48,21 +57,34 @@ const getRandomInteger = (a, b) => {
 
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-function createIdGenerator () {
+const createIdGenerator = () => {
   let lastGeneratedId = 0;
-  return function () {
+  return () => {
     lastGeneratedId += 1;
     return lastGeneratedId;
   };
-}
-const generatePhotoId = createIdGenerator();
+};
 
-const generateId = createIdGenerator();
+
+const generatePhotoId = createIdGenerator();
+const generateCommentId = createIdGenerator();
+
+
+const countOfComments = () => {
+  let message = '';
+  if (getRandomInteger (MIN_SENTENCES, MAX_SENTENCES) === 1){
+    message = getRandomArrayElement(MESSAGES);
+  } else {
+    message = `${getRandomArrayElement(MESSAGES) } ${ getRandomArrayElement(MESSAGES)}`;
+  }
+  return message;
+};
+
 
 const generateComment = () => ({
-  id: generateId(),
-  avatar: `img/avatar-${getRandomInteger(1,7)}.svg`,
-  message: getRandomArrayElement(MESSAGES),
+  id: generateCommentId(),
+  avatar: `img/avatar-${getRandomInteger(MIN_AVATAR, MAX_AVATAR)}.svg`,
+  message: countOfComments(),
   name: getRandomArrayElement(NAMES)
 });
 
@@ -72,11 +94,13 @@ const generateObject = () => {
     id: photoId,
     url: `photos/${photoId}.jpg`,
     description: getRandomArrayElement(DESCRIPTION),
-    likes: getRandomInteger(15, 201),
-    comments: Array.from({length: getRandomInteger(1, 26)}, generateComment)
+    likes: getRandomInteger(MIN_LIKES_ID, MAX_LIKES_ID),
+    comments: Array.from({length: getRandomInteger(MIN_COMMENTS_ID, MAX_COMMENTS_ID)}, generateComment)
   };
 };
 
 const generateObjects = () => Array.from({length: 25}, generateObject);
 
 generateObjects();
+
+
