@@ -71,6 +71,7 @@ const generateObject = () => {
   };
 };
 
+
 const generateObjects = () => Array.from({length: OBJECT_COUNT}, generateObject);
 
 export {generateObjects};
