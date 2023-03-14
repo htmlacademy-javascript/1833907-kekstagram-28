@@ -21,3 +21,4 @@ const generateCommentId = createIdGenerator();
 
 
 export{getRandomInteger, getRandomArrayElement, generatePhotoId, generateCommentId};
+

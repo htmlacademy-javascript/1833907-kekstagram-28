@@ -1,4 +1,4 @@
-import{getRandomInteger, getRandomArrayElement, generatePhotoId, generateCommentId} from './util.js';
+import {getRandomInteger, getRandomArrayElement, generatePhotoId, generateCommentId} from './util.js';
 
 const MIN_AVATAR = 1;
 const MAX_AVATAR = 6;
@@ -49,7 +49,7 @@ const MESSAGES = [
 ];
 
 
-const generateMessage = () => Math.random() > 0.5 ? getRandomArrayElement(MESSAGES) : `${getRandomArrayElement(MESSAGES) } ${ getRandomArrayElement(MESSAGES)}`;
+const generateMessage = () => Math.random() > 0.5 ? getRandomArrayElement(MESSAGES) : `${getRandomArrayElement(MESSAGES)} ${ getRandomArrayElement(MESSAGES)}`;
 
 
 const generateComment = () => ({
@@ -75,5 +75,4 @@ const generateObject = () => {
 const generateObjects = () => Array.from({length: OBJECT_COUNT}, generateObject);
 
 export {generateObjects};
-
 
