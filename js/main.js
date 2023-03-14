@@ -1,11 +1,10 @@
-const MIN_SENTENCES = 1;
-const MAX_SENTENCES = 2;
 const MIN_AVATAR = 1;
 const MAX_AVATAR = 6;
-const MIN_LIKES_ID = 15;
-const MAX_LIKES_ID = 200;
-const MIN_COMMENTS_ID = 1;
-const MAX_COMMENTS_ID = 25;
+const MIN_LIKES = 15;
+const MAX_LIKES = 200;
+const MIN_COMMENTS = 1;
+const MAX_COMMENTS = 25;
+const OBJECT_COUNT = 25;
 
 const DESCRIPTION = [
   `Октябрь уж наступил — уж роща отряхает
@@ -70,21 +69,13 @@ const generatePhotoId = createIdGenerator();
 const generateCommentId = createIdGenerator();
 
 
-const countOfComments = () => {
-  let message = '';
-  if (getRandomInteger (MIN_SENTENCES, MAX_SENTENCES) === 1){
-    message = getRandomArrayElement(MESSAGES);
-  } else {
-    message = `${getRandomArrayElement(MESSAGES) } ${ getRandomArrayElement(MESSAGES)}`;
-  }
-  return message;
-};
+const generateMessage = () => Math.random() > 0.5 ? getRandomArrayElement(MESSAGES) : `${getRandomArrayElement(MESSAGES) } ${ getRandomArrayElement(MESSAGES)}`;
 
 
 const generateComment = () => ({
   id: generateCommentId(),
   avatar: `img/avatar-${getRandomInteger(MIN_AVATAR, MAX_AVATAR)}.svg`,
-  message: countOfComments(),
+  message: generateMessage(),
   name: getRandomArrayElement(NAMES)
 });
 
@@ -94,12 +85,12 @@ const generateObject = () => {
     id: photoId,
     url: `photos/${photoId}.jpg`,
     description: getRandomArrayElement(DESCRIPTION),
-    likes: getRandomInteger(MIN_LIKES_ID, MAX_LIKES_ID),
-    comments: Array.from({length: getRandomInteger(MIN_COMMENTS_ID, MAX_COMMENTS_ID)}, generateComment)
+    likes: getRandomInteger(MIN_LIKES, MAX_LIKES),
+    comments: Array.from({length: getRandomInteger(MIN_COMMENTS, MAX_COMMENTS)}, generateComment)
   };
 };
 
-const generateObjects = () => Array.from({length: 25}, generateObject);
+const generateObjects = () => Array.from({length: OBJECT_COUNT}, generateObject);
 
 generateObjects();
 
