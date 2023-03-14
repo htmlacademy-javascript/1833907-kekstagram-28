@@ -20,5 +20,5 @@ const generatePhotoId = createIdGenerator();
 const generateCommentId = createIdGenerator();
 
 
-export{getRandomInteger, getRandomArrayElement, generatePhotoId, generateCommentId};
+export {getRandomInteger, getRandomArrayElement, generatePhotoId, generateCommentId};
 
