@@ -1,6 +1,3 @@
-
-
-
 const picturesTemplate = document.querySelector('#picture').content;
 const picturesListItem = picturesTemplate.querySelector('.picture');
 const photoListFragment = document.createDocumentFragment();
