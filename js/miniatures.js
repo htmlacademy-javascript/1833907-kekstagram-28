@@ -1,7 +1,5 @@
 
 
-import {generateObjects} from './data.js';
-
 
 const picturesTemplate = document.querySelector('#picture').content;
 const picturesListItem = picturesTemplate.querySelector('.picture');
