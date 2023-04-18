@@ -1,3 +1,4 @@
+// функция для генерации рандомного числа
 const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
@@ -5,9 +6,10 @@ const getRandomInteger = (a, b) => {
   return Math.floor(result);
 };
 
+// функция для генерации рандомного элмента массива
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
-
+// генерирует рандомное id
 const createIdGenerator = () => {
   let lastGeneratedId = 0;
   return () => {
@@ -16,6 +18,7 @@ const createIdGenerator = () => {
   };
 };
 
+// генерирует id фотографии и id комментария
 const generatePhotoId = createIdGenerator();
 const generateCommentId = createIdGenerator();
 

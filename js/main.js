@@ -1,4 +1,6 @@
 import {generateObjects} from './data.js';
+import {generatePictures} from './miniatures.js';
 
-generateObjects();
+generatePictures(generateObjects());
+
 
