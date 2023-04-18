@@ -3,7 +3,7 @@ const picturesListItem = picturesTemplate.querySelector('.picture');
 const photoListFragment = document.createDocumentFragment();
 const photoListElement = document.querySelector('.pictures');
 
-function generatePictures(objects) {
+function generatePictures(Objects) {
   Objects.forEach(createMini);
   photoListElement.appendChild(photoListFragment);
 }
